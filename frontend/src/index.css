@@ -1,55 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap');
-
 @import "tailwindcss";
 
+@theme {
+  /* Colors */
+  --color-capitec-red: #E2231A;
+  --color-capitec-red-dark: #C41E17;
+  --color-capitec-red-light: #FF4444;
+  --color-capitec-blue: #003E7E;
+  --color-capitec-blue-dark: #002D5C;
+  --color-capitec-blue-light: #005AA3;
+  --color-capitec-gray-50: #F9FAFB;
+  --color-capitec-gray-100: #F3F4F6;
+  --color-capitec-gray-200: #E5E7EB;
+  --color-capitec-gray-300: #D1D5DB;
+  --color-capitec-gray-400: #9CA3AF;
+  --color-capitec-gray-500: #6B7280;
+  --color-capitec-gray-600: #4B5563;
+  --color-capitec-gray-700: #374151;
+  --color-capitec-gray-800: #1F2937;
+  --color-capitec-gray-900: #111827;
 
-/* Custome global styles */
-:root{
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Fonts */
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-display: "Poppins", "Inter", "sans-serif";
 
-  color-scheme: light;
+  /* Animations */
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-slide-down: slideDown 0.5s ease-out;
+  --animate-scale-in: scaleIn 0.3s ease-out;
+  --animate-shake: shake 0.5s; /* Moved here */
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes scaleIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
   
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    @apply min-h-screen bg-white text-capitec-gray-900 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  #root {
+    @apply min-h-screen;
+  }
 
-body {
-  min-height: 100vh;
-  background-color: #ffffff;
+  *:focus-visible {
+    outline: 2px solid var(--color-capitec-red);
+    outline-offset: 2px;
+  }
 }
-
-#root {
-  min-height: 100vh;
-}
-
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--color-capitec-gray-100); }
+::-webkit-scrollbar-thumb { 
+  background: var(--color-capitec-red); 
+  border-radius: 4px; 
 }
+::-webkit-scrollbar-thumb:hover { background: var(--color-capitec-red-dark); }
 
-::-webkit-scrollbar-track {
-  background: #f3f4f6;
+/* Recharts override */
+.recharts-default-tooltip {
+  background-color: white !important;
+  border: 2px solid var(--color-capitec-gray-200) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
 }
-
-::-webkit-scrollbar-thumb {
-  background: #E2231A;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #C41E17;
-}
-
-/* End of custom scrollbar */
