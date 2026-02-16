@@ -76,7 +76,7 @@ Frontend runs on: http://localhost:3000
 
 # Running with Docker
 
-NB - Please make to have Docker installed and running on your machine
+NB - Please make sure to have Docker installed and running on your machine
 
 This project includes:
 
