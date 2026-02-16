@@ -17,9 +17,6 @@ export const ProgressSteps: React.FC<ProgressStepsProps> = ({
   currentStep,
   completedSteps,
 }) => {
-  const getCurrentStepNumber = () => {
-    return steps.find(s => s.id === currentStep)?.number || 1;
-  };
 
   const isStepCompleted = (stepId: FormStep) => {
     return completedSteps.includes(stepId);

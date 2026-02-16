@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./mock_api
+    ports:
+      - "3001:3001"
+    networks:
+      - loan-network
+
+  fronted:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    networks:
+      - loan-network
+
+networks:
+  loan-network:
+    driver: bridge

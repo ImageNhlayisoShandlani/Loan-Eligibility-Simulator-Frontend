@@ -10,7 +10,7 @@ export const EMPLOYMENT_STATUS_OPTIONS = [
   { value: 'self_employed', label: 'Self Employed' },
   { value: 'unemployed', label: 'Unemployed' },
   { value: 'retired', label: 'Retired' },
-] as const;
+];
 
 //Loan purpose options
 export const LOAN_PURPOSE_OPTIONS = [
@@ -21,7 +21,7 @@ export const LOAN_PURPOSE_OPTIONS = [
   { value: 'new_vehicle', label: 'New Vehicle' },
   { value: 'used_vehicle', label: 'Used Vehicle' },
   { value: 'other', label: 'Other' },
-] as const;
+];
 
 //Validation form constants
 export const VALIDATION_LIMITS = {
